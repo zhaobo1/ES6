@@ -6,4 +6,35 @@
 <body>
 
 </body>
+
+<script type="text/javascript">
+不带参数的；
+let g = () => 2;
+等价于
+let g = function(){
+	return 2;
+}
+
+
+带参数的；
+带一个参数：
+let f = b => {console.log(b);return 1};
+等价于
+let f = function(b){
+	console.log(b);
+	return 1;
+}
+带多个参数：
+let h = (num1,num2) => num1+num2;
+等价于
+let h = function(num1,num2){
+	return num1+num2;
+}
+
+如果代码块中的代码大于1行；必须用花括号{}将代码块包裹起来，并且要使用return返回；
+let i = i => {console.log(i);return 2}
+
+如果箭头函数直接返回一个对象，必须在对象外面加上括号。
+let j = () => ({id:1,name:'cd'});
+</script>
 </html>
