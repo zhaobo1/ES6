@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>let</title>
+</head>
+<body>
+let的用途和var类似，都是用来声明变量的，但是它们还是有一定的区别；
+例如：
+<pre>
+var name = 1;
+if (true)
+{
+	var name = 2;
+	console.log(name);=>2
+}
+console.log(name);=>2
+</pre>
+<pre>
+let name = 1;
+if(true)
+{
+	let name = 2;
+	console.log(name);=>2
+}
+console.log(name);=>1
+</pre>
+<pre>
+var  a = [];
+for (var i = 0;i < 10 ;i++) {
+	a[i] = function(){
+		console.log(i);
+	}
+}
+a[6]();=>10;
+每次循环都在改变I的值，最终i = 10;无论调用数组中的哪个函数，最后得到的都是10；
+如果使用ES6的let;用它声明的变量只在let的代码块中有效；
+var b = [];
+for(let i = 0 ; i < 10 ;i++)
+{
+	b[i] = function (){
+		console.log(i);
+	}
+}
+b[6]();=>6;
+</pre>
+造成这样的原因主要在于，在ES5中只有全局作用域和函数作用域，没有块级作用域；这带来了很多不合理的场景；
+例如：内层变量的修改影响到了外层变量；在例如：用于计数的变量暴露成为了全局变量；
+
+</body>
+<script type="text/javascript">
+
+</script>
+</html>
