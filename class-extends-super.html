@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>class-extends-super</title>
+</head>
+<body>
+	这3个特性涉及到的是ES5中最让人头痛的原型，构造函数，继承，
+SE6中引入了class类这个概念，让JS更加接近于传统的语言，让原型的写法更加清晰；
+更像面向对象的语言，更容易理解；
+<pre>
+class Animal {
+	constructor(){
+		this.type = 'animal'
+	};
+	says(word){
+		console.log(this.type+'...says...'+word);
+	}
+}
+let animal = new Animal();
+animal.says('hello');
+
+class Cat extends Animal {
+	constructor(){
+		super();
+		this.type = 'cat';
+	}
+}
+let cat = new Cat();
+cat.says('hello');
+</pre>
+上述代码首先用class定义了一个animal的类；
+里面有constructor的构造方法；而this关键字则代表实例对象；
+简单点说constructor中的方法和属性是实例对象自己的；
+而constructor外的方法和属性则是所有实例对象可以共享的。
+class之间通过extends来实现继承，这比ES5通过修改原型来实现继承要清晰和方便很多；
+比如上面代码定义了一个cat类，它通过extends继承了animal的所有属性和方法；
+super关键字，它指代父类的实例（父类的this对象）。子类必须在constructor方法中
+调用super方法；否则新建实例时会报错。这是因为子类没有this对象，而是继承父类的this
+对象，如果不调用super方法，子类就等不到this对象；
+
+ES6的继承机制，实质是先创建父类的实例对象this，再通过子类的constructor方法来修改this；
+</body>
+
+<script type="text/javascript">
+
+</script>
+</html>
