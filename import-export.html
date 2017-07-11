@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>import-export</title>
+</head>
+<body>
+
+</body>
+这2个涉及到的是ES6的模块特性；
+随着市场上JS的模块化越来越流行；例如commonjs，require.js,seajs,
+他们都是为了解决JS天生缺乏模块化而出现的；
+ES6的模块化也是姗姗来迟；
+
+ES6模块设计思想，是尽量静态化，使在编译时就确定模块的依赖关系；
+
+传统写法；
+首先回顾下require.js的写法；
+例如我们有2个JS文件，main.js 和 a.js;main.js 依赖于a.js的返回值；
+假定a.js不依赖于其他js；并且他们都处在同一个目录中；
+./a.js
+difine('a.js',function(){
+	return 'hello';	
+})
+./main.js
+require(['./a.js'],function(_a){
+	console.log( _a + ` world` );//hello world
+})；
+commonjs的写法
+./a.js
+module.exports = 'hello';
+./main.js
+let a = require('./a.js');
+console.log(a + ` world`);//hello world
+
+
+
+ES6的写法：
+./a.js
+exprot default 'hello';
+
+
+./main.js
+let hello = import Hello from './a.js';
+console.log(hello + ` world`);//hello world;
+
+其他高级用法：
+ES6的模块导出不只是可以导出字符串，
+还可以导出函数，或者类；
+
+我们修改a.js
+
+./a.js
+exprot default 'hello';
+let say = () => 'hello';
+exprot say;//导出的是函数；这个函数没有参数，只返回了一个字符串；
+
+exprot const type = 'dog';//导出变量；
+
+./main.js
+
+import {say , type} from './a.js';
+console.log(`the ${type} says ${say()}`);//dog says hello;
+</html>
+<script type="text/javascript" src="main.js"></script>
