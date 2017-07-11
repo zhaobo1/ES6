@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>default-rest</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+//default 就是默认值的意思；例如：
+在ES5中当我们的参数没有的时候需要设定一个默认值；
+我们一般这样写
+var a = function(name){
+	name = name || 'defaultStr';
+	console.log(name);
+}
+在ES6中我们这样写
+let a = (name = 'defaultStr') => {console.log(name)};a();//defaultStr
+
+
+//rest 
+ES5 中这样写；
+var animal = function(arguments){
+	console.log(arguments);
+}
+animal(['cat','dog','fish']);//['cat','dog','fish']
+
+ES6 中这样写；
+let animal = (...types) => {console.log(types)};
+animal('cat','dog','fish');//['cat','dog','fish']
+</script>
+</html>
