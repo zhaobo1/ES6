@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>template-string</title>
+</head>
+<body id="body">
+
+</body>
+<script type="text/javascript">
+//当我们需要用JS操作大量html内容文档的时候，是一件令人头疼的是；比如
+
+//ES5写法；
+let name = '张珊';
+let html = "<div>"+name+"</div>"+
+	"<div>"+name+"</div>"+
+	"<div>"+name+"</div>"+
+	"<div>"+name+"</div>"
+//ES6写法；
+let name = '张珊';
+let html = `<div>${name}</div>
+	<div>${name}</div>
+	<div>${name}</div>
+	<div>${name}</div>`;
+
+ 插入变量：使用${变量名}；
+ 如:`${name}`;
+ 模板字符串也是可以调用方法的；
+ 如:let a = () => 5;
+ 	`${a()}`
+ 在模板字符串中使用``；
+ 如：let youname = `\`李\`梅`;//`李`梅
+
+</script>
+</html>
