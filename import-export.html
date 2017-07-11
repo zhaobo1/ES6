@@ -60,5 +60,14 @@ exprot const type = 'dog';//导出变量；
 
 import {say , type} from './a.js';
 console.log(`the ${type} says ${say()}`);//dog says hello;
+
+//只导入type;
+import {type} from './a.js';
+
+//全部导入
+import cat, * as content from './a.js';
+
+//使用别名
+import cat, {say , type as animateTtpe} from './a.js';
 </html>
 <script type="text/javascript" src="main.js"></script>
